@@ -44,12 +44,12 @@ export const IMAGENS = {
     altura: 1138,
     post: `${IG}/reel/DdjYip7RSkO/`,
   },
-  "sobre-balcao": {
-    src: `${BASE}/sobre/balcao.webp`,
-    alt: "Atendente no balcão de madeira da Skin Shape",
-    largura: 716,
-    altura: 1274,
-    post: `${IG}/reel/DclypD_x662/`,
+  "sobre-letreiro": {
+    src: `${BASE}/sobre/letreiro-azulejo.webp`,
+    alt: "Letreiro redondo da Skin Shape sobre o azulejo azul-petróleo da fachada",
+    largura: 640,
+    altura: 853,
+    post: `${IG}/p/DWjzsttEfXH/`,
   },
   "categoria-restricoes": {
     src: `${BASE}/categorias/docinhos-coco.webp`,

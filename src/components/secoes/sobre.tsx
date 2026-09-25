@@ -14,7 +14,7 @@ const NUMEROS = [
 
 export function Sobre() {
   const loja = IMAGENS["sobre-fachada"];
-  const cafe = IMAGENS["sobre-balcao"];
+  const cafe = IMAGENS["sobre-letreiro"];
 
   return (
     <section
@@ -48,8 +48,8 @@ export function Sobre() {
             </div>
           </div>
           <p className="revelar mt-6 max-w-[48%] text-xs leading-relaxed text-cinza" style={ordem(2)}>
-            A fachada na Rua Tenente Coronel Cardoso, 765. O azulejo dela
-            virou o desenho deste site.
+            A fachada na Rua Tenente Coronel Cardoso, 765. O azulejo do
+            letreiro virou o desenho deste site.
           </p>
         </div>
 
