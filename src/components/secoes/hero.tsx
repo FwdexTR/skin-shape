@@ -1,17 +1,22 @@
 import { ArrowDown, Star } from "lucide-react";
 import Image from "next/image";
 import type { CSSProperties } from "react";
+import { preload } from "react-dom";
 import { Azulejo } from "@/components/marca/azulejo";
 import { IconeWhatsApp } from "@/components/marca/icones-redes";
+import { VideoAmbiente } from "@/components/marca/video-ambiente";
 import { Botao } from "@/components/ui/button";
-import { IMAGENS } from "@/data/imagens";
+import { IMAGENS, VIDEOS } from "@/data/imagens";
 import { GOOGLE, linkWhatsApp } from "@/lib/site";
 
 const ordem = (i: number) => ({ "--i": i }) as CSSProperties;
 
 export function Hero() {
-  const principal = IMAGENS["hero-principal"];
+  const video = VIDEOS.shitake;
+  const poster = IMAGENS[video.poster];
   const cafe = IMAGENS["hero-cafe"];
+  // O pôster do vídeo é o maior elemento da primeira dobra (LCP).
+  preload(poster.src, { as: "image", fetchPriority: "high" });
 
   return (
     <section
@@ -108,16 +113,17 @@ export function Hero() {
 
           <div className="entrar-imagem relative aspect-[4/5] overflow-hidden rounded-[2rem] rounded-tl-[7rem] bg-areia shadow-2 sm:rounded-tl-[10rem] lg:aspect-[4/5.4]">
             <div className="hero-deriva absolute inset-0">
-              <Image
-                src={principal.src}
-                alt={principal.alt}
-                fill
-                preload
-                fetchPriority="high"
-                sizes="(min-width: 1280px) 40vw, (min-width: 1024px) 48vw, 100vw"
-                className="object-cover object-[50%_40%]"
+              <VideoAmbiente
+                src={video.src}
+                poster={poster.src}
+                rotulo={`Vídeo: ${poster.alt}`}
+                prioridade
               />
             </div>
+            <p className="absolute top-4 right-4 max-w-[11rem] rounded-2xl bg-papel/90 px-3.5 py-2.5 text-[0.72rem] leading-snug text-grafite-2 shadow-1 backdrop-blur sm:top-5 sm:right-5">
+              <span className="block font-semibold text-grafite">Shitake Imperial</span>
+              prato do Festival de Inverno, de volta ao cardápio
+            </p>
           </div>
 
           {/* Detalhe do café */}

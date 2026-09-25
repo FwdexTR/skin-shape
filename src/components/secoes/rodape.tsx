@@ -38,7 +38,7 @@ export function Rodape() {
     <footer className="no-escuro bg-grafite text-branco">
       <div className="container-ss grid gap-14 pt-20 pb-12 md:grid-cols-12 md:gap-10">
         <div className="md:col-span-4">
-          <Logo claro forma="bloco" className="items-start" />
+          <Logo claro className="h-32 sm:h-36" />
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/70">
             Mercado funcional, café e bistrô no Centro de Campos dos
             Goytacazes. {MARCA.bio}

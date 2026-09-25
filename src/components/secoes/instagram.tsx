@@ -49,7 +49,8 @@ export function Instagram() {
               Viva <span className="destaque">Skin Shape</span>
             </h2>
             <p className="revelar mt-5 max-w-md leading-relaxed text-grafite-2" style={ordem(2)}>
-              Cardápio do dia, novidades da prateleira e dicas de nutrição.{" "}
+              Cardápio do dia, novidades da prateleira e mitos da comida
+              saudável.{" "}
               <strong className="font-semibold text-grafite">
                 {REDES.instagramSeguidores} pessoas
               </strong>{" "}
@@ -74,7 +75,7 @@ export function Instagram() {
                 style={ordem(i % 3)}
               >
                 <a
-                  href={REDES.instagram}
+                  href={img.post}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group zoom-suave relative block h-full overflow-hidden rounded-[1.25rem] bg-areia"
@@ -84,7 +85,7 @@ export function Instagram() {
                     alt={img.alt}
                     fill
                     sizes="(min-width: 768px) 33vw, 50vw"
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                   <span
                     aria-hidden="true"
@@ -101,7 +102,7 @@ export function Instagram() {
                       <ArrowUpRight className="size-4" />
                     </span>
                   </span>
-                  <span className="sr-only">— abrir o Instagram da Skin Shape</span>
+                  <span className="sr-only">— abrir a publicação no Instagram</span>
                 </a>
               </li>
             );

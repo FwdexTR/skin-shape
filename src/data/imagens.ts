@@ -1,13 +1,13 @@
 /**
- * Registro de todas as fotos do site.
+ * Registro de todas as fotos e vídeos do site.
  *
- * TODAS estão marcadas como `temporaria: true`: são fotos do Unsplash
- * (licença livre para uso comercial) escolhidas para bater com o que a Skin
- * Shape vende. Nenhuma é da loja. As fotos reais existem no Instagram
- * @skinshape, mas só entram aqui com autorização da loja.
+ * Todo o material vem do Instagram oficial da loja (@skinshape), com uso
+ * autorizado pela Skin Shape (confirmado pelo responsável pelo site em
+ * 25/09/2026). `post` aponta para a publicação de origem.
  *
- * Para trocar: salve a foto real em public/images/skin-shape/ com o mesmo
- * caminho, ajuste `alt` e troque `temporaria` para false. Pronto.
+ * Algumas fotos são quadros tirados dos reels e outras foram recortadas para
+ * tirar as legendas escritas por cima das artes. Para trocar uma foto, salve a
+ * nova em public/images/skin-shape/ com o mesmo caminho.
  */
 
 export type Imagem = {
@@ -15,182 +15,176 @@ export type Imagem = {
   alt: string;
   largura: number;
   altura: number;
-  temporaria: boolean;
-  /** Crédito da foto temporária (Unsplash não exige, mas fica registrado). */
-  credito?: string;
+  /** Publicação do Instagram de onde a imagem saiu. */
+  post: string;
 };
 
 const BASE = "/images/skin-shape";
+const IG = "https://www.instagram.com";
 
 export const IMAGENS = {
-  "hero-principal": {
-    src: `${BASE}/hero/hero-principal.webp`,
-    alt: "Pessoa almoçando uma salada colorida com frango e romã",
-    largura: 1400,
-    altura: 2100,
-    temporaria: true,
-    credito: "Rodrigo Rodrigues | WOLF Λ R T / Unsplash",
-  },
   "hero-cafe": {
-    src: `${BASE}/hero/hero-cafe.webp`,
-    alt: "Cappuccino com desenho de folha na espuma",
+    src: `${BASE}/hero/cafe-logo.webp`,
+    alt: "Café coado na xícara da Skin Shape, com o logo da loja",
     largura: 700,
-    altura: 1050,
-    temporaria: true,
-    credito: "Caleb / Unsplash",
+    altura: 933,
+    post: `${IG}/p/DdFLnh3gfqs/`,
   },
-  "sobre-loja": {
-    src: `${BASE}/sobre/loja.webp`,
-    alt: "Prateleiras de madeira com potes de vidro cheios de grãos e sementes",
-    largura: 1200,
-    altura: 800,
-    temporaria: true,
-    credito: "ayumi kubo / Unsplash",
+  "hero-shitake": {
+    src: `${BASE}/hero/shitake-poster.webp`,
+    alt: "Shitake Imperial servido na mesa do bistrô da Skin Shape",
+    largura: 716,
+    altura: 1274,
+    post: `${IG}/reel/DdXPPNgRIJz/`,
   },
-  "sobre-cafe": {
-    src: `${BASE}/sobre/cafe.webp`,
-    alt: "Ambiente de café com mesas de madeira e plantas",
-    largura: 1000,
-    altura: 1500,
-    temporaria: true,
-    credito: "micheile henderson / Unsplash",
+  "sobre-fachada": {
+    src: `${BASE}/sobre/fachada.webp`,
+    alt: "Fachada da Skin Shape, com o letreiro redondo sobre o azulejo geométrico",
+    largura: 640,
+    altura: 1138,
+    post: `${IG}/reel/DdjYip7RSkO/`,
+  },
+  "sobre-balcao": {
+    src: `${BASE}/sobre/balcao.webp`,
+    alt: "Atendente no balcão de madeira da Skin Shape",
+    largura: 716,
+    altura: 1274,
+    post: `${IG}/reel/DclypD_x662/`,
   },
   "categoria-restricoes": {
-    src: `${BASE}/categorias/restricoes.webp`,
-    alt: "Grãos, sementes, castanhas e frutas secas espalhados sobre a mesa",
+    src: `${BASE}/categorias/docinhos-coco.webp`,
+    alt: "Docinhos de coco em forminhas",
     largura: 1200,
-    altura: 878,
-    temporaria: true,
-    credito: "Maddi Bazzocco / Unsplash",
-  },
-  "categoria-suplementos": {
-    src: `${BASE}/categorias/suplementos.webp`,
-    alt: "Pote de proteína em pó ao lado de uma colher dosadora",
-    largura: 1000,
-    altura: 667,
-    temporaria: true,
-    credito: "Alex Saks / Unsplash",
-  },
-  "categoria-cafe": {
-    src: `${BASE}/categorias/cafe.webp`,
-    alt: "Quatro xícaras de café com leite vistas de cima",
-    largura: 1000,
-    altura: 1500,
-    temporaria: true,
-    credito: "Nathan Dumlao / Unsplash",
+    altura: 1200,
+    post: `${IG}/p/Ddtyp-4kfke/`,
   },
   "categoria-bistro": {
-    src: `${BASE}/categorias/bistro.webp`,
-    alt: "Peito de frango grelhado com cuscuz e legumes coloridos",
+    src: `${BASE}/categorias/salada-da-casa.webp`,
+    alt: "Salada da casa com frango desfiado, massa, cenoura, milho e folhas",
     largura: 1200,
-    altura: 900,
-    temporaria: true,
-    credito: "joe boshra / Unsplash",
+    altura: 727,
+    post: `${IG}/p/DdRW4h4Ed3S/`,
+  },
+  "categoria-cafe": {
+    src: `${BASE}/categorias/crepioca.webp`,
+    alt: "Crepioca recheada com frango e salada de tomate",
+    largura: 1100,
+    altura: 1100,
+    post: `${IG}/p/DdFLnh3gfqs/`,
+  },
+  "categoria-suplementos": {
+    src: `${BASE}/categorias/vitaminas.webp`,
+    alt: "Caixas de vitaminas e suplementos nas prateleiras da loja",
+    largura: 716,
+    altura: 1274,
+    post: `${IG}/reel/DdjYip7RSkO/`,
   },
   "categoria-doces": {
-    src: `${BASE}/categorias/doces.webp`,
-    alt: "Fatia de bolo branco com fatias de limão",
-    largura: 1000,
-    altura: 1500,
-    temporaria: true,
-    credito: "Elena Leya / Unsplash",
+    src: `${BASE}/categorias/bolos-fatia.webp`,
+    alt: "Fatias de bolo com morango em embalagens individuais",
+    largura: 1100,
+    altura: 1100,
+    post: `${IG}/p/Ddtyp-4kfke/`,
   },
   "categoria-geladeira": {
-    src: `${BASE}/categorias/geladeira.webp`,
-    alt: "Tigela de iogurte com granola",
-    largura: 1000,
-    altura: 667,
-    temporaria: true,
-    credito: "Welcome / Unsplash",
+    src: `${BASE}/categorias/geladeiras.webp`,
+    alt: "Geladeiras de iogurtes e bebidas no salão da loja",
+    largura: 640,
+    altura: 1138,
+    post: `${IG}/reel/DclypD_x662/`,
+  },
+  "experiencia-empadinhas": {
+    src: `${BASE}/experiencia/empadinhas-poster.webp`,
+    alt: "Mãos da equipe montando empadinhas sem glúten e sem lactose",
+    largura: 716,
+    altura: 1274,
+    post: `${IG}/reel/DceloHvxFak/`,
   },
   "experiencia-manha": {
-    src: `${BASE}/experiencia/manha.webp`,
-    alt: "Cappuccino servido numa mesa de madeira",
+    src: `${BASE}/experiencia/bolo-laranja.webp`,
+    alt: "Bolo de laranja com rodelas da fruta por cima",
     largura: 1000,
-    altura: 1500,
-    temporaria: true,
-    credito: "Nathan Dumlao / Unsplash",
+    altura: 1000,
+    post: `${IG}/p/Ddtyp-4kfke/`,
   },
   "experiencia-almoco": {
-    src: `${BASE}/experiencia/almoco.webp`,
-    alt: "Salada em tigela de madeira vista de cima",
-    largura: 1000,
-    altura: 750,
-    temporaria: true,
-    credito: "irws / Unsplash",
+    src: `${BASE}/experiencia/quibe-homus.webp`,
+    alt: "Quibe de carne e quinoa com homus tahine, arroz com lentilha e tomatinhos",
+    largura: 1100,
+    altura: 733,
+    post: `${IG}/p/DdRW4h4Ed3S/`,
   },
   "experiencia-tarde": {
-    src: `${BASE}/experiencia/tarde.webp`,
-    alt: "Potes de vidro com grãos e sementes numa prateleira de madeira",
-    largura: 1000,
-    altura: 1500,
-    temporaria: true,
-    credito: "zeesi / Unsplash",
-  },
-  "experiencia-mesa": {
-    src: `${BASE}/experiencia/mesa.webp`,
-    alt: "Duas pessoas à mesa de um café, com pratos e bebidas",
-    largura: 1600,
-    altura: 1068,
-    temporaria: true,
-    credito: "Alimentos Fotogénicos / Unsplash",
+    src: `${BASE}/experiencia/sacola.webp`,
+    alt: "Sacola de papel com o logo da Skin Shape entregue no balcão",
+    largura: 716,
+    altura: 1274,
+    post: `${IG}/reel/DdjYip7RSkO/`,
   },
   "instagram-01": {
-    src: `${BASE}/instagram/post-01.webp`,
-    alt: "Mesa de café da manhã com frutas e sucos",
-    largura: 700,
-    altura: 467,
-    temporaria: true,
-    credito: "Brooke Lark / Unsplash",
+    src: `${BASE}/instagram/ig-doce-sem-culpa.webp`,
+    alt: "Post: “Doce, bonito e sem peso na consciência”, com bolos em bandejas",
+    largura: 720,
+    altura: 720,
+    post: `${IG}/p/Ddtyp-4kfke/`,
   },
   "instagram-02": {
-    src: `${BASE}/instagram/post-02.webp`,
-    alt: "Tigelas de salada sobre fundo claro",
-    largura: 700,
-    altura: 467,
-    temporaria: true,
-    credito: "Ella Olsson / Unsplash",
+    src: `${BASE}/instagram/ig-mitos.webp`,
+    alt: "Post: “Mitos sobre comida saudável”, com um bolo com cobertura de doce de leite",
+    largura: 720,
+    altura: 720,
+    post: `${IG}/p/DdpI9bPgS4u/`,
   },
   "instagram-03": {
-    src: `${BASE}/instagram/post-03.webp`,
-    alt: "Tigela com legumes, abacate e grão-de-bico",
-    largura: 700,
-    altura: 467,
-    temporaria: true,
-    credito: "Anna Pelzer / Unsplash",
+    src: `${BASE}/instagram/ig-massa-pesto.webp`,
+    alt: "Post: massa sem glúten com pesto, frango desfiado, tomatinhos e parmesão de castanhas",
+    largura: 720,
+    altura: 720,
+    post: `${IG}/p/DdRW4h4Ed3S/`,
   },
   "instagram-04": {
-    src: `${BASE}/instagram/post-04.webp`,
-    alt: "Nozes numa tigela de madeira",
-    largura: 700,
-    altura: 1049,
-    temporaria: true,
-    credito: "Larisa Birta / Unsplash",
+    src: `${BASE}/instagram/ig-shitake.webp`,
+    alt: "Reel: o Shitake Imperial, prato do Festival de Inverno, de volta à Skin Shape",
+    largura: 640,
+    altura: 1138,
+    post: `${IG}/reel/DdXPPNgRIJz/`,
   },
   "instagram-05": {
-    src: `${BASE}/instagram/post-05.webp`,
-    alt: "Amigos dividindo pratos numa mesa",
-    largura: 700,
-    altura: 467,
-    temporaria: true,
-    credito: "Wasa Crispbread / Unsplash",
+    src: `${BASE}/instagram/ig-fachada.webp`,
+    alt: "Post: fachada da loja na Rua Tenente Coronel Cardoso, 765",
+    largura: 1000,
+    altura: 500,
+    post: `${IG}/p/Ddtyp-4kfke/`,
   },
   "instagram-06": {
-    src: `${BASE}/instagram/post-06.webp`,
-    alt: "Café claro com cadeiras de palhinha e plantas",
-    largura: 700,
-    altura: 1036,
-    temporaria: true,
-    credito: "Salman Rameli / Unsplash",
-  },
-  "cta-folhas": {
-    src: `${BASE}/cta/sombra-folhas.webp`,
-    alt: "",
-    largura: 1800,
-    altura: 1013,
-    temporaria: true,
-    credito: "Spencer Liao / Unsplash",
+    src: `${BASE}/instagram/ig-bolo.webp`,
+    alt: "Reel: fatia de bolo sem açúcar para quem tem restrição alimentar",
+    largura: 640,
+    altura: 1138,
+    post: `${IG}/reel/Dc3w-T6xL4Q/`,
   },
 } satisfies Record<string, Imagem>;
 
 export type ImagemId = keyof typeof IMAGENS;
+
+/** Vídeos: sem áudio, em loop. Comprimidos a partir dos reels originais. */
+export const VIDEOS = {
+  shitake: {
+    src: `${BASE}/video/shitake-imperial.mp4`,
+    poster: "hero-shitake",
+    post: `${IG}/reel/DdXPPNgRIJz/`,
+  },
+  empadinhas: {
+    src: `${BASE}/video/producao-empadinhas.mp4`,
+    poster: "experiencia-empadinhas",
+    post: `${IG}/reel/DceloHvxFak/`,
+  },
+} as const satisfies Record<string, { src: string; poster: ImagemId; post: string }>;
+
+export const LOGO = {
+  padrao: `${BASE}/marca/logo.svg`,
+  claro: `${BASE}/marca/logo-claro.svg`,
+  folhas: `${BASE}/marca/folhas.svg`,
+  /** Proporção largura/altura do logo completo (viewBox). */
+  proporcao: 1537 / 1834,
+} as const;

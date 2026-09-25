@@ -47,7 +47,7 @@ export function ResumoMarca() {
                   className="flex items-center gap-6 pr-6 font-display text-lg font-medium tracking-tight whitespace-nowrap text-grafite sm:text-xl"
                 >
                   {termo}
-                  <FolhasLogo className="h-3 w-5 opacity-80" />
+                  <FolhasLogo className="h-3.5" />
                 </li>
               ))}
             </ul>
@@ -67,7 +67,7 @@ export function ResumoMarca() {
       <div className="container-ss py-[clamp(4.5rem,9vw,8rem)]">
         <p className="revelar mx-auto max-w-5xl text-center font-display text-[clamp(1.75rem,4.2vw,3.4rem)] leading-[1.14] font-medium tracking-[-0.025em] text-balance">
           Um mercado
-          <Pilula id="sobre-loja" />
+          <Pilula id="categoria-geladeira" />
           com café
           <Pilula id="hero-cafe" />
           e bistrô

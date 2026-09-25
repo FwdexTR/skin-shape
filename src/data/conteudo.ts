@@ -29,42 +29,43 @@ export const CATEGORIAS: Categoria[] = [
     id: "bistro",
     titulo: "Bistrô: almoço e saladas",
     resumo:
-      "Comida prática e nutritiva, para comer na loja ou pedir pelo telefone.",
-    itens: ["Almoço", "Saladas"],
+      "Pratos executivos, saladas e massas com baixíssimas calorias, de uma cozinha toda sem glúten e sem lactose.",
+    itens: ["Pratos executivos", "Saladas", "Massas", "Pizza e coxinha"],
     imagem: "categoria-bistro",
-    fonte: "Destaques 'Almoço' e 'Saladas' do Instagram",
+    fonte: "Posts do Instagram de 14/09 e 23/09/2026",
   },
   {
     id: "cafe",
     titulo: "Cafeteria",
-    resumo: "O café abre junto com a loja, às 8h, de segunda a sábado.",
-    itens: ["Cafés", "Doces funcionais"],
+    resumo:
+      "Cafezinho orgânico e crepioca feita na hora, tudo livre de glúten, lactose e açúcar.",
+    itens: ["Café orgânico", "Crepioca", "Lanches"],
     imagem: "categoria-cafe",
-    fonte: "Bio do Instagram (Café & Bistrô) e horário do Google",
+    fonte: "Post do Instagram de 09/09/2026",
   },
   {
     id: "suplementos",
     titulo: "Suplementos e vitaminas",
     resumo:
-      "Suplementos e soluções para uma rotina de treino e de saúde mais equilibrada.",
-    itens: ["Proteínas", "Vitaminas", "Suplementos"],
+      "Das melhores marcas, inclusive em sachês para levar na bolsa quando você viaja.",
+    itens: ["Proteínas", "Vitaminas", "Sachês"],
     imagem: "categoria-suplementos",
-    fonte: "Descrição da loja e categoria no Google",
+    fonte: "Reel do Instagram de 28/08/2026",
   },
   {
     id: "doces",
     titulo: "Doces funcionais",
     resumo:
-      "Bolinhos sem açúcar, sem glúten e sem lactose, para a vontade de doce não virar culpa.",
-    itens: ["Bolinhos", "Bolos", "Tortas"],
+      "Dieta e restrição alimentar não precisam ser sinônimo de abandonar os docinhos.",
+    itens: ["Bolos", "Docinhos", "Empadinhas"],
     imagem: "categoria-doces",
-    fonte: "Post do Instagram de 19/08/2026",
+    fonte: "Reel de 04/09/2026 e post de 25/09/2026",
   },
   {
     id: "geladeira",
     titulo: "Iogurtes e refrigerados",
-    resumo: "Uma geladeira inteira de iogurtes e opções refrigeradas para o dia a dia.",
-    itens: ["Iogurtes", "Refrigerados", "Bebidas"],
+    resumo: "Geladeiras de iogurtes, bebidas e refeições prontas para não fugir da dieta.",
+    itens: ["Iogurtes", "Bebidas", "Refeições prontas"],
     imagem: "categoria-geladeira",
     fonte: "Vídeo da loja no Instagram (28/08/2026)",
   },
@@ -76,17 +77,17 @@ export type Diferencial = {
   texto: string;
 };
 
-/** Cada diferencial repete algo que os próprios clientes escreveram no Google. */
+/** Tirados das avaliações do Google e das legendas do próprio Instagram. */
 export const DIFERENCIAIS: Diferencial[] = [
   {
     icone: "variedade",
-    titulo: "Para cada restrição",
-    texto: "Sem glúten, sem lactose, zero açúcar e veganos na mesma prateleira.",
+    titulo: "Cozinha sem glúten e sem lactose",
+    texto: "Toda a cozinha da loja: do almoço executivo às empadinhas feitas ali mesmo.",
   },
   {
     icone: "qualidade",
-    titulo: "Marcas selecionadas",
-    texto: "Produtos de qualidade e muita variedade para uma vida saudável.",
+    titulo: "Para cada restrição",
+    texto: "As melhores marcas sem glúten, sem lactose, zero açúcar e veganas na mesma prateleira.",
   },
   {
     icone: "atendimento",
@@ -157,46 +158,47 @@ export const MOMENTOS: MomentoDoDia[] = [
     hora: "08h",
     titulo: "O primeiro café",
     texto:
-      "A porta abre às oito. Dá tempo de um café sem pressa antes de começar o dia.",
+      "A porta abre às oito: café orgânico, crepioca feita na hora e um bolo sem açúcar.",
     imagem: "experiencia-manha",
   },
   {
     hora: "12h",
     titulo: "Almoço de verdade",
     texto:
-      "Uma salada ou um prato quente, na mesa da loja ou pedido por telefone.",
+      "Prato executivo, salada da casa ou massa sem glúten. Na mesa da loja ou para levar.",
     imagem: "experiencia-almoco",
   },
   {
     hora: "até 20h",
     titulo: "As compras da semana",
     texto:
-      "Na volta para casa, o que faltou na despensa: do zero açúcar ao suplemento do treino.",
+      "Na volta para casa, a reposição do que falta na despensa, do zero açúcar ao suplemento.",
     imagem: "experiencia-tarde",
   },
 ];
 
 export type PostInstagram = {
+  /** A imagem guarda também o link da publicação (IMAGENS[id].post). */
   imagem: ImagemId;
-  /** Nome de um destaque ou hashtag real do perfil. */
+  /** Resumo curto do post, tirado da própria legenda. */
   tema: string;
 };
 
-/** Temas tirados dos destaques e hashtags fixas do @skinshape. */
+/** Publicações reais do @skinshape (setembro de 2026). */
 export const POSTS_INSTAGRAM: PostInstagram[] = [
-  { imagem: "instagram-01", tema: "Cafeteria" },
-  { imagem: "instagram-02", tema: "Saladas" },
-  { imagem: "instagram-03", tema: "Almoço" },
-  { imagem: "instagram-04", tema: "#NutriDicas" },
-  { imagem: "instagram-05", tema: "Seja Skin Shape" },
-  { imagem: "instagram-06", tema: "#novaSkinShape" },
+  { imagem: "instagram-01", tema: "Doce sem culpa" },
+  { imagem: "instagram-02", tema: "Mitos da comida saudável" },
+  { imagem: "instagram-03", tema: "Almoço do dia" },
+  { imagem: "instagram-04", tema: "Shitake Imperial" },
+  { imagem: "instagram-05", tema: "Tenente Coronel Cardoso, 765" },
+  { imagem: "instagram-06", tema: "Docinhos sem açúcar" },
 ];
 
 export const PERGUNTAS = [
   {
     pergunta: "A Skin Shape tem produtos sem glúten e sem lactose?",
     resposta:
-      "Tem, e é uma das especialidades da loja: produtos sem glúten, sem lactose, zero açúcar e veganos, além de bolinhos funcionais feitos sem açúcar, glúten e lactose.",
+      "Tem, e é a especialidade da casa: produtos sem glúten, sem lactose, zero açúcar e veganos no empório, e uma cozinha inteira sem glúten e sem lactose no bistrô.",
   },
   {
     pergunta: "Qual é o horário de funcionamento?",
@@ -216,6 +218,6 @@ export const PERGUNTAS = [
   {
     pergunta: "Dá para almoçar ou tomar café na Skin Shape?",
     resposta:
-      "Dá. Além do mercado, a Skin Shape tem café e bistrô, com almoço e saladas durante a semana.",
+      "Dá. O café serve café orgânico e crepioca feita na hora, e o almoço tem pratos executivos, saladas e massas, tudo sem glúten e sem lactose.",
   },
 ];

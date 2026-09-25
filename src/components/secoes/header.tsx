@@ -93,7 +93,14 @@ export function Header() {
           aria-label="Skin Shape, Empório Funcional — voltar ao início"
           className="shrink-0 rounded-md"
         >
-          <Logo claro={rolou && escuro} />
+          <Logo
+            prioridade
+            claro={rolou && escuro}
+            className={cn(
+              "transition-[height] duration-500 ease-saida",
+              rolou ? "h-12" : "h-14 lg:h-[4.25rem]",
+            )}
+          />
         </a>
 
         <nav aria-label="Principal" className="hidden xl:block">
@@ -169,7 +176,7 @@ export function Header() {
               <div className="flex h-20 items-center justify-between px-6">
                 <SheetTitle asChild>
                   <span>
-                    <Logo />
+                    <Logo className="h-12" />
                   </span>
                 </SheetTitle>
                 <SheetClose asChild>

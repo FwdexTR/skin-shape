@@ -16,8 +16,8 @@ import {
  * - Bricolage Grotesque: títulos. Grotesca com personalidade e eixo óptico,
  *   fica editorial em corpo grande sem perder a leitura no celular.
  * - Manrope: texto corrido e interface.
- * - Kaushan Script: só no logo e em palavras de destaque, ecoando o lettering
- *   em pincel da marca. Nunca em frase inteira.
+ * - Kaushan Script: só em palavras de destaque, ecoando o lettering do logo
+ *   em pincel. Nunca em frase inteira.
  */
 const titulo = Bricolage_Grotesque({
   variable: "--fonte-titulo",
@@ -114,7 +114,7 @@ const DADOS_ESTRUTURADOS = {
   description: DESCRICAO,
   url: SITE_URL,
   image: `${SITE_URL}/opengraph-image.jpg`,
-  logo: `${SITE_URL}/icon.svg`,
+  logo: `${SITE_URL}/images/skin-shape/marca/logo.svg`,
   telephone: `+${CONTATO.whatsapp}`,
   email: CONTATO.email,
   foundingDate: String(MARCA.desde),

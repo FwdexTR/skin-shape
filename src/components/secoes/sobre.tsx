@@ -13,8 +13,8 @@ const NUMEROS = [
 ];
 
 export function Sobre() {
-  const loja = IMAGENS["sobre-loja"];
-  const cafe = IMAGENS["sobre-cafe"];
+  const loja = IMAGENS["sobre-fachada"];
+  const cafe = IMAGENS["sobre-balcao"];
 
   return (
     <section
@@ -25,14 +25,14 @@ export function Sobre() {
       <div className="container-ss grid gap-y-16 lg:grid-cols-12 lg:gap-x-12">
         {/* Composição assimétrica de fotos */}
         <div className="relative lg:col-span-6">
-          <div className="revelar-imagem relative aspect-square w-[88%] overflow-hidden rounded-[1.75rem] bg-linho">
+          <div className="revelar-imagem relative aspect-[4/5] w-[80%] overflow-hidden rounded-[1.75rem] bg-linho">
             <div className="parallax absolute inset-0">
               <Image
                 src={loja.src}
                 alt={loja.alt}
                 fill
-                sizes="(min-width: 1024px) 44vw, 88vw"
-                className="object-cover"
+                sizes="(min-width: 1024px) 40vw, 80vw"
+                className="object-cover object-[50%_20%]"
               />
             </div>
           </div>
@@ -48,8 +48,8 @@ export function Sobre() {
             </div>
           </div>
           <p className="revelar mt-6 max-w-[48%] text-xs leading-relaxed text-cinza" style={ordem(2)}>
-            Rua Tenente Coronel Cardoso, 765 — o empório divide o espaço com o
-            café e o bistrô.
+            A fachada na Rua Tenente Coronel Cardoso, 765. O azulejo dela
+            virou o desenho deste site.
           </p>
         </div>
 
@@ -70,9 +70,9 @@ export function Sobre() {
             </p>
             <p className="revelar" style={ordem(3)}>
               Na loja do Centro, o empório divide o espaço com o café e o
-              bistrô. Dá para fazer as compras da semana, tomar um café e
-              almoçar sem trocar de endereço, com o atendimento que os
-              clientes fazem questão de elogiar no Google.
+              bistrô, e toda a cozinha é sem glúten e sem lactose: do almoço
+              às empadinhas, feitas ali mesmo. Dá para fazer as compras da
+              semana, tomar um café e almoçar sem trocar de endereço.
             </p>
           </div>
 

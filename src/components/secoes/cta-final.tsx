@@ -1,17 +1,13 @@
 import { Navigation } from "lucide-react";
-import Image from "next/image";
 import type { CSSProperties } from "react";
 import { Azulejo } from "@/components/marca/azulejo";
 import { IconeWhatsApp } from "@/components/marca/icones-redes";
 import { Botao } from "@/components/ui/button";
-import { IMAGENS } from "@/data/imagens";
 import { CONTATO, LINK_ROTA, linkWhatsApp } from "@/lib/site";
 
 const ordem = (i: number) => ({ "--i": i }) as CSSProperties;
 
 export function CtaFinal() {
-  const folhas = IMAGENS["cta-folhas"];
-
   return (
     <section
       id="contato"
@@ -24,14 +20,11 @@ export function CtaFinal() {
       </div>
 
       <div className="relative">
-        <Image
-          src={folhas.src}
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover opacity-70"
-        />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-papel/70 via-papel/40 to-papel/80" />
+        {/* Azulejo da fachada bem apagado, como textura */}
+        <div aria-hidden="true" className="absolute inset-0 text-petroleo opacity-[0.07]">
+          <Azulejo id="azulejo-cta-fundo" escala={1.1} />
+        </div>
+        <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--ss-papel)_35%,transparent_75%)]" />
 
         <div className="container-ss relative py-[clamp(6rem,14vw,11rem)] text-center">
           <p className="revelar rotulo justify-center">Fale com a gente</p>

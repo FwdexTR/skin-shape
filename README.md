@@ -15,11 +15,11 @@ npm run build && npm start
 | --- | --- |
 | Endereço, WhatsApp, horários, redes, nota do Google | `src/lib/site.ts` |
 | Textos: categorias, diferenciais, avaliações, FAQ, "um dia na loja" | `src/data/conteudo.ts` |
-| Registro das fotos (caminho, alt, se é temporária) | `src/data/imagens.ts` |
+| Registro das fotos e vídeos (caminho, alt, post de origem) | `src/data/imagens.ts` |
 | Design system (cores, tipografia, raios, sombras, movimento) | `src/app/globals.css` |
-| Logo (redesenho provisório) e azulejo da fachada | `src/components/marca/` |
+| Logo oficial (SVG), vídeo de ambiente e azulejo da fachada | `src/components/marca/`, `public/images/skin-shape/marca/` |
 | Seções da página | `src/components/secoes/` |
-| SEO: metadados, Schema.org, sitemap, robots, OG | `src/app/layout.tsx`, `sitemap.ts`, `robots.ts`, `opengraph-image.jpg` (gerador em `src/app/_og/gerar-og.tsx`) |
+| SEO: metadados, Schema.org, sitemap, robots, OG | `src/app/layout.tsx`, `sitemap.ts`, `robots.ts`, `opengraph-image.jpg` (modelo em `src/app/_og/og.html`) |
 
 ## De onde vieram os dados (pesquisa de 25/09/2026)
 
@@ -38,27 +38,35 @@ npm run build && npm start
 As avaliações exibidas são cópias literais das públicas no Google. Nada foi
 inventado; o que não tinha fonte ficou de fora.
 
+## Fotos, vídeos e logo
+
+Todo o material visual é da própria Skin Shape, com uso autorizado
+(confirmado em 25/09/2026):
+
+- **Logo:** vetorizado em SVG (três cores) a partir do arquivo de 2048 px da
+  página oficial no Facebook (facebook.com/skineshape). Versões em
+  `public/images/skin-shape/marca/`: `logo.svg`, `logo-claro.svg` (fundo
+  escuro) e `folhas.svg` (ícone e detalhes).
+- **Fotos e vídeos:** publicações do Instagram @skinshape de março a setembro
+  de 2026. Cada entrada de `src/data/imagens.ts` guarda o link do post de
+  origem. Algumas são quadros tirados dos reels e outras foram recortadas para
+  tirar a legenda escrita por cima da arte.
+- **Vídeos** (`public/images/skin-shape/video/`): Shitake Imperial (hero) e
+  produção de empadinhas (Experiência), sem áudio, H.264 com `faststart`.
+  Pausam fora da tela e ficam parados com "reduzir movimento" ligado.
+
 ## Pendências (pedir à Skin Shape)
 
-1. **Fotos reais.** Todas as fotos atuais são temporárias (Unsplash, licença
-   livre). Para trocar, salve a foto real em `public/images/skin-shape/` com o
-   mesmo caminho e marque `temporaria: false` em `src/data/imagens.ts`.
-   A imagem de compartilhamento é `src/app/opengraph-image.jpg` (ver `src/app/_og/gerar-og.tsx`). As fotos do Instagram só
-   entram com autorização da loja.
-2. **Logo vetorial** (SVG/AI/PDF). O logo atual é um redesenho a partir do
-   avatar do Instagram, com a fonte Kaushan Script (`src/components/marca/logo.tsx`).
-3. **Domínio.** Defina `NEXT_PUBLIC_SITE_URL` na Vercel quando o domínio
+1. **Fotos em alta resolução.** As do Instagram chegam a 1440 px e os quadros
+   de reel a 716 px. Fotos originais da câmera deixariam o hero e os cards mais
+   nítidos em telas grandes.
+2. **Domínio.** Defina `NEXT_PUBLIC_SITE_URL` na Vercel quando o domínio
    estiver apontado. Sem ele, canonical e sitemap usam o domínio de produção
    da Vercel (`VERCEL_PROJECT_PRODUCTION_URL`).
-4. **Confirmar "desde 2012".** Vem da data de abertura do CNPJ.
-5. **Search Console e Bing Webmaster:** códigos de verificação em `layout.tsx`.
-6. **Atualizar de tempos em tempos:** nota/quantidade de avaliações e número
-   de seguidores (`src/lib/site.ts`).
-
-## Fotos temporárias
-
-`node scripts/fetch-placeholders.mjs` baixa e converte para WebP as fotos
-temporárias que faltarem. Créditos em `src/data/imagens.ts`.
+3. **Confirmar "desde 2012".** Vem da data de abertura do CNPJ.
+4. **Search Console e Bing Webmaster:** códigos de verificação em `layout.tsx`.
+5. **Atualizar de tempos em tempos:** nota/quantidade de avaliações e número
+   de seguidores (`src/lib/site.ts`), e os posts da seção Instagram.
 
 ## Movimento e acessibilidade
 

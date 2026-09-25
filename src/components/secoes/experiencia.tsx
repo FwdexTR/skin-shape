@@ -2,14 +2,16 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import type { CSSProperties } from "react";
 import { Azulejo } from "@/components/marca/azulejo";
+import { VideoAmbiente } from "@/components/marca/video-ambiente";
 import { MOMENTOS } from "@/data/conteudo";
-import { IMAGENS } from "@/data/imagens";
+import { IMAGENS, VIDEOS } from "@/data/imagens";
 import { cn } from "@/lib/utils";
 
 const ordem = (i: number) => ({ "--i": i }) as CSSProperties;
 
 export function Experiencia() {
-  const mesa = IMAGENS["experiencia-mesa"];
+  const empadinhas = VIDEOS.empadinhas;
+  const posterEmpadinhas = IMAGENS[empadinhas.poster];
 
   return (
     <section
@@ -46,30 +48,49 @@ export function Experiencia() {
           </p>
         </div>
 
-        {/* Foto larga com parallax discreto */}
-        <figure className="relative mt-14 sm:mt-20">
-          <div className="revelar-imagem relative aspect-[4/3] overflow-hidden rounded-[1.75rem] sm:aspect-[21/9]">
-            <div className="parallax absolute inset-0">
-              <Image
-                src={mesa.src}
-                alt={mesa.alt}
-                fill
-                sizes="(min-width: 1320px) 1240px, 100vw"
-                className="object-cover"
+        {/* Feito aqui: vídeo real da produção das empadinhas */}
+        <div className="mt-14 grid items-center gap-10 sm:mt-20 md:grid-cols-12 md:gap-12">
+          <figure className="revelar relative md:col-span-5 lg:col-span-4">
+            <div className="relative mx-auto aspect-[9/14] max-w-sm overflow-hidden rounded-[1.75rem] bg-petroleo shadow-2 md:max-w-none">
+              <VideoAmbiente
+                src={empadinhas.src}
+                poster={posterEmpadinhas.src}
+                rotulo={`Vídeo: ${posterEmpadinhas.alt}`}
               />
             </div>
+            <figcaption className="mt-4 text-center text-sm text-white/70 md:text-left">
+              Dia de produção de empadinhas na cozinha da loja.
+            </figcaption>
+          </figure>
+          <div className="md:col-span-7 lg:col-span-7 lg:col-start-6">
+            <p className="revelar rotulo !text-folha-clara">Feito aqui</p>
+            <p
+              className="revelar mt-6 font-display text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.08] font-semibold tracking-[-0.03em] text-balance"
+              style={ordem(1)}
+            >
+              Toda a nossa cozinha é{" "}
+              <span className="destaque">sem glúten e sem lactose.</span>
+            </p>
+            <p
+              className="revelar mt-6 max-w-xl text-lg leading-relaxed text-white/75"
+              style={ordem(2)}
+            >
+              Massa e recheio das empadinhas, a pizza, a coxinha, as massas e os
+              pratos executivos: cozimento lento, ingredientes bem escolhidos e
+              nenhum glúten ou lactose no caminho.
+            </p>
+            <ul className="revelar mt-8 flex flex-wrap gap-2" style={ordem(3)} aria-label="Da cozinha da loja">
+              {["Empadinhas", "Pizza", "Coxinha", "Massas", "Pratos executivos"].map((t) => (
+                <li
+                  key={t}
+                  className="rounded-full border border-white/25 px-4 py-2 text-sm font-medium"
+                >
+                  {t}
+                </li>
+              ))}
+            </ul>
           </div>
-          <figcaption className="absolute bottom-4 left-4 flex flex-wrap gap-2 sm:bottom-6 sm:left-6">
-            {["Mercado", "Café", "Bistrô"].map((t) => (
-              <span
-                key={t}
-                className="rounded-full bg-petroleo-escuro/70 px-4 py-2 text-sm font-medium backdrop-blur-md"
-              >
-                {t}
-              </span>
-            ))}
-          </figcaption>
-        </figure>
+        </div>
 
         {/* Um dia na loja */}
         <ol className="mt-20 grid gap-14 sm:mt-28 md:grid-cols-3 md:gap-8 lg:gap-12">
