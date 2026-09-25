@@ -108,7 +108,7 @@ export function Experiencia() {
                 >
                   {m.hora}
                 </p>
-                <div className="zoom-suave relative mt-5 aspect-[4/5] overflow-hidden rounded-[1.25rem]">
+                <div className="zoom-suave relative mt-5 aspect-square overflow-hidden rounded-[1.25rem]">
                   <Image
                     src={img.src}
                     alt={img.alt}

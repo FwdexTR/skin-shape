@@ -108,18 +108,18 @@ export const IMAGENS = {
     post: `${IG}/p/Ddtyp-4kfke/`,
   },
   "experiencia-almoco": {
-    src: `${BASE}/experiencia/quibe-homus.webp`,
-    alt: "Quibe de carne e quinoa com homus tahine, arroz com lentilha e tomatinhos",
-    largura: 1100,
-    altura: 733,
+    src: `${BASE}/experiencia/massa-pesto.webp`,
+    alt: "Massa sem glúten com pesto, frango desfiado, tomatinhos e parmesão de castanhas",
+    largura: 900,
+    altura: 900,
     post: `${IG}/p/DdRW4h4Ed3S/`,
   },
   "experiencia-tarde": {
-    src: `${BASE}/experiencia/sacola.webp`,
-    alt: "Sacola de papel com o logo da Skin Shape entregue no balcão",
+    src: `${BASE}/experiencia/bolo-tarde.webp`,
+    alt: "Fatia de bolo recheado sobre a mesa, com as prateleiras da loja ao fundo",
     largura: 716,
-    altura: 1274,
-    post: `${IG}/reel/DdjYip7RSkO/`,
+    altura: 716,
+    post: `${IG}/reel/Dc3w-T6xL4Q/`,
   },
   "instagram-01": {
     src: `${BASE}/instagram/ig-doce-sem-culpa.webp`,
@@ -157,11 +157,11 @@ export const IMAGENS = {
     post: `${IG}/p/Ddtyp-4kfke/`,
   },
   "instagram-06": {
-    src: `${BASE}/instagram/ig-bolo.webp`,
-    alt: "Reel: fatia de bolo sem açúcar para quem tem restrição alimentar",
+    src: `${BASE}/instagram/ig-bate-bola.webp`,
+    alt: "Reel: bate-bola com a equipe sobre os produtos preferidos da cafeteria",
     largura: 640,
     altura: 1138,
-    post: `${IG}/reel/Dc3w-T6xL4Q/`,
+    post: `${IG}/reel/DdJpOzBx3N-/`,
   },
 } satisfies Record<string, Imagem>;
 

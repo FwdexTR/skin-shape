@@ -158,7 +158,7 @@ export const MOMENTOS: MomentoDoDia[] = [
     hora: "08h",
     titulo: "O primeiro café",
     texto:
-      "A porta abre às oito: café orgânico, crepioca feita na hora e um bolo sem açúcar.",
+      "A porta abre às oito: café orgânico, crepioca feita na hora e um bolo para acompanhar.",
     imagem: "experiencia-manha",
   },
   {
@@ -170,9 +170,9 @@ export const MOMENTOS: MomentoDoDia[] = [
   },
   {
     hora: "até 20h",
-    titulo: "As compras da semana",
+    titulo: "O doce da tarde",
     texto:
-      "Na volta para casa, a reposição do que falta na despensa, do zero açúcar ao suplemento.",
+      "Dieta e restrição alimentar não precisam ser sinônimo de abandonar os docinhos.",
     imagem: "experiencia-tarde",
   },
 ];
@@ -191,7 +191,7 @@ export const POSTS_INSTAGRAM: PostInstagram[] = [
   { imagem: "instagram-03", tema: "Almoço do dia" },
   { imagem: "instagram-04", tema: "Shitake Imperial" },
   { imagem: "instagram-05", tema: "Tenente Coronel Cardoso, 765" },
-  { imagem: "instagram-06", tema: "Docinhos sem açúcar" },
+  { imagem: "instagram-06", tema: "Bate-bola com a equipe" },
 ];
 
 export const PERGUNTAS = [

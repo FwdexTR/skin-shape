@@ -2,6 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  experimental: {
+    // Esta máquina tem pouca memória livre: com um worker por núcleo o build
+    // falha ao criar threads (os error 1450). Na Vercel, NEXT_BUILD_CPUS fica vazio.
+    cpus: Number(process.env.NEXT_BUILD_CPUS) || undefined,
+  },
   images: {
     // AVIF primeiro: nas fotos de comida costuma sair 30–40% menor que WebP.
     formats: ["image/avif", "image/webp"],
