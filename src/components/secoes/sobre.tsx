@@ -24,7 +24,7 @@ export function Sobre() {
     >
       <div className="container-ss grid gap-y-16 lg:grid-cols-12 lg:gap-x-12">
         {/* Composição assimétrica de fotos */}
-        <div className="relative lg:col-span-6">
+        <div className="relative mx-auto w-full max-w-[30rem] lg:col-span-6 lg:max-w-none">
           <div className="revelar-imagem relative aspect-[4/5] w-[80%] overflow-hidden rounded-[1.75rem] bg-linho">
             <div className="parallax absolute inset-0">
               <Image

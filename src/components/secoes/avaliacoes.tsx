@@ -3,7 +3,7 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight, Star } from "lucide-react";
 import { AnimatePresence, LazyMotion, domAnimation, useReducedMotion } from "motion/react";
 import * as m from "motion/react-m";
-import { useState } from "react";
+import { useRef, useState, type TouchEvent } from "react";
 import { AVALIACOES } from "@/data/conteudo";
 import { GOOGLE } from "@/lib/site";
 
@@ -20,6 +20,22 @@ export function Avaliacoes() {
   };
 
   const deslocamento = reduzir ? 0 : 36;
+
+  // Deslizar com o dedo no celular: arrasto horizontal de 50 px troca a avaliação.
+  const inicioToque = useRef<{ x: number; y: number } | null>(null);
+  const aoTocar = (e: TouchEvent) => {
+    const t = e.touches[0];
+    inicioToque.current = { x: t.clientX, y: t.clientY };
+  };
+  const aoSoltar = (e: TouchEvent) => {
+    const ini = inicioToque.current;
+    inicioToque.current = null;
+    if (!ini) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - ini.x;
+    const dy = t.clientY - ini.y;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) ir(dx < 0 ? 1 : -1);
+  };
 
   return (
     <section
@@ -53,7 +69,7 @@ export function Avaliacoes() {
             href={GOOGLE.perfil}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold"
+            className="group mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold"
           >
             <span className="link-sublinhado">Ver todas no Google</span>
             <ArrowUpRight
@@ -70,7 +86,12 @@ export function Avaliacoes() {
           aria-roledescription="carrossel"
           aria-label="Avaliações de clientes"
         >
-          <div className="relative min-h-[15rem] sm:min-h-[13rem]" aria-live="polite">
+          <div
+            className="relative min-h-[15rem] touch-pan-y sm:min-h-[13rem]"
+            aria-live="polite"
+            onTouchStart={aoTocar}
+            onTouchEnd={aoSoltar}
+          >
             <LazyMotion features={domAnimation} strict>
               <AnimatePresence mode="wait" initial={false} custom={direcao}>
                 <m.figure

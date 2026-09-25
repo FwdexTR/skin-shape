@@ -90,6 +90,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  // Deixa o site ocupar a tela inteira no iPhone; as margens seguras (notch,
+  // barra inferior) são respeitadas via env(safe-area-inset-*) no CSS.
+  viewportFit: "cover",
   themeColor: "#f7f4ee",
   colorScheme: "light",
 };

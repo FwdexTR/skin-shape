@@ -54,6 +54,7 @@ export function Experiencia() {
             <div className="relative mx-auto aspect-[9/14] max-w-sm overflow-hidden rounded-[1.75rem] bg-petroleo shadow-2 md:max-w-none">
               <VideoAmbiente
                 src={empadinhas.src}
+                srcMovel={empadinhas.srcMovel}
                 poster={posterEmpadinhas.src}
                 rotulo={`Vídeo: ${posterEmpadinhas.alt}`}
               />
@@ -134,7 +135,7 @@ export function Experiencia() {
           </p>
           <a
             href="#localizacao"
-            className="group inline-flex items-center gap-2 font-semibold text-folha-clara"
+            className="group inline-flex min-h-11 items-center gap-2 self-start font-semibold text-folha-clara"
           >
             <span className="link-sublinhado">Ver como chegar</span>
             <ArrowRight

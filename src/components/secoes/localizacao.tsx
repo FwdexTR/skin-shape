@@ -89,26 +89,26 @@ export function Localizacao() {
             </Bloco>
 
             <Bloco icone={<Phone className="size-[1.1rem]" aria-hidden="true" />} titulo="Contato">
-              <ul className="space-y-1">
+              <ul className="-my-1.5">
                 <li>
                   <a
                     href={linkWhatsApp()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="link-sublinhado font-medium"
+                    className="group inline-flex min-h-11 items-center font-medium"
                   >
-                    WhatsApp {CONTATO.whatsappExibicao}
+                    <span className="link-sublinhado">WhatsApp {CONTATO.whatsappExibicao}</span>
                   </a>
                 </li>
                 <li>
-                  <a href={`tel:+${CONTATO.telefoneFixo}`} className="link-sublinhado">
-                    Telefone {CONTATO.telefoneFixoExibicao}
+                  <a href={`tel:+${CONTATO.telefoneFixo}`} className="group inline-flex min-h-11 items-center">
+                    <span className="link-sublinhado">Telefone {CONTATO.telefoneFixoExibicao}</span>
                   </a>
                 </li>
                 <li>
-                  <a href={`mailto:${CONTATO.email}`} className="link-sublinhado inline-flex items-center gap-1.5">
+                  <a href={`mailto:${CONTATO.email}`} className="group inline-flex min-h-11 items-center gap-1.5">
                     <Mail className="size-3.5 text-grafite-2" aria-hidden="true" />
-                    {CONTATO.email}
+                    <span className="link-sublinhado">{CONTATO.email}</span>
                   </a>
                 </li>
               </ul>
@@ -121,7 +121,7 @@ export function Localizacao() {
                   href={REDES.ifood}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-sublinhado font-medium"
+                  className="toque link-sublinhado font-medium"
                 >
                   iFood
                 </a>

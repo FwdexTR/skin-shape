@@ -16,11 +16,11 @@ const ordem = (i: number) => ({ "--i": i }) as CSSProperties;
  */
 const LAYOUT = [
   "aspect-[4/5] lg:col-span-7 lg:row-span-2 lg:aspect-auto",
-  "aspect-square sm:aspect-[4/5] lg:col-span-5 lg:aspect-[4/3]",
-  "aspect-square sm:aspect-[4/5] lg:col-span-5 lg:aspect-[4/3]",
-  "aspect-square sm:aspect-[4/5] lg:col-span-4",
-  "aspect-square sm:aspect-[4/5] lg:col-span-4",
-  "aspect-square sm:aspect-[4/5] lg:col-span-4",
+  "aspect-[4/5] lg:col-span-5 lg:aspect-[4/3]",
+  "aspect-[4/5] lg:col-span-5 lg:aspect-[4/3]",
+  "aspect-[4/5] lg:col-span-4",
+  "aspect-[4/5] lg:col-span-4",
+  "aspect-[4/5] lg:col-span-4",
 ];
 
 function CartaoCategoria({
@@ -61,7 +61,7 @@ function CartaoCategoria({
           className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/0 transition-opacity duration-500 group-hover:from-black/85"
         />
 
-        <span className="absolute top-5 left-5 rounded-full bg-branco/90 px-3 py-1 text-[0.7rem] font-semibold tracking-[0.12em] text-grafite uppercase tabular-nums backdrop-blur">
+        <span className="absolute top-5 left-5 rounded-full bg-branco/90 px-3 py-1 text-xs font-semibold tracking-[0.12em] text-grafite uppercase tabular-nums backdrop-blur">
           {String(indice + 1).padStart(2, "0")}
         </span>
         <span
@@ -131,7 +131,7 @@ export function Produtos() {
               href={REDES.ifood}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold"
+              className="group mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold"
             >
               <IconeIfood className="size-4 text-[#c8102e]" />
               <span className="link-sublinhado">Pedir pelo iFood</span>

@@ -12,7 +12,7 @@ const botao = cva(
   [
     "group/botao relative inline-flex shrink-0 items-center justify-center gap-2.5 whitespace-nowrap rounded-full font-semibold",
     "transition-[transform,background-color,color,box-shadow,border-color] duration-300 ease-saida",
-    "hover:-translate-y-0.5 active:translate-y-0 motion-reduce:hover:translate-y-0",
+    "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97] motion-reduce:hover:translate-y-0",
     "disabled:pointer-events-none disabled:opacity-50",
     "[&_svg]:size-[1.1em] [&_svg]:shrink-0",
     "[&_.seta]:transition-transform [&_.seta]:duration-300 hover:[&_.seta]:translate-x-0.5 hover:[&_.seta.diagonal]:-translate-y-0.5",

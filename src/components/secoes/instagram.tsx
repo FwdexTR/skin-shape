@@ -92,7 +92,7 @@ export function Instagram() {
                     className="absolute inset-0 bg-grafite/0 transition-colors duration-500 group-hover:bg-grafite/35 group-focus-visible:bg-grafite/35"
                   />
                   <span className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-2 sm:inset-x-4 sm:bottom-4">
-                    <span className="rounded-full bg-branco/92 px-3 py-1.5 text-xs font-semibold text-grafite backdrop-blur">
+                    <span className="hidden min-w-0 truncate rounded-full bg-branco/92 px-3 py-1.5 text-xs font-semibold text-grafite backdrop-blur sm:inline">
                       {post.tema}
                     </span>
                     <span
@@ -102,7 +102,7 @@ export function Instagram() {
                       <ArrowUpRight className="size-4" />
                     </span>
                   </span>
-                  <span className="sr-only">— abrir a publicação no Instagram</span>
+                  <span className="sr-only">{post.tema} — abrir a publicação no Instagram</span>
                 </a>
               </li>
             );

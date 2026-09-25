@@ -167,19 +167,27 @@ export const IMAGENS = {
 
 export type ImagemId = keyof typeof IMAGENS;
 
-/** Vídeos: sem áudio, em loop. Comprimidos a partir dos reels originais. */
+/**
+ * Vídeos: sem áudio, em loop. Comprimidos a partir dos reels originais.
+ * srcMovel (480 px, ~40% do peso) é o que o celular baixa.
+ */
 export const VIDEOS = {
   shitake: {
     src: `${BASE}/video/shitake-imperial.mp4`,
+    srcMovel: `${BASE}/video/shitake-imperial-480.mp4`,
     poster: "hero-shitake",
     post: `${IG}/reel/DdXPPNgRIJz/`,
   },
   empadinhas: {
     src: `${BASE}/video/producao-empadinhas.mp4`,
+    srcMovel: `${BASE}/video/producao-empadinhas-480.mp4`,
     poster: "experiencia-empadinhas",
     post: `${IG}/reel/DceloHvxFak/`,
   },
-} as const satisfies Record<string, { src: string; poster: ImagemId; post: string }>;
+} as const satisfies Record<
+  string,
+  { src: string; srcMovel: string; poster: ImagemId; post: string }
+>;
 
 export const LOGO = {
   padrao: `${BASE}/marca/logo.svg`,

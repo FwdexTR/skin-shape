@@ -64,11 +64,11 @@ export function Rodape() {
           <h2 className="text-xs font-bold tracking-[0.16em] text-white/60 uppercase">
             Navegue
           </h2>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-3">
             {LINKS.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="link-sublinhado text-white/85 hover:text-white">
-                  {l.rotulo}
+                <a href={l.href} className="group inline-flex min-h-11 items-center text-white/85 hover:text-white">
+                  <span className="link-sublinhado">{l.rotulo}</span>
                 </a>
               </li>
             ))}
@@ -104,20 +104,20 @@ export function Rodape() {
               </li>
             ))}
           </ul>
-          <ul className="mt-5 space-y-1 text-sm">
+          <ul className="mt-3 text-sm">
             <li>
-              <a href={linkWhatsApp()} target="_blank" rel="noopener noreferrer" className="link-sublinhado text-white/85 hover:text-white">
-                WhatsApp {CONTATO.whatsappExibicao}
+              <a href={linkWhatsApp()} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-11 items-center text-white/85 hover:text-white">
+                <span className="link-sublinhado">WhatsApp {CONTATO.whatsappExibicao}</span>
               </a>
             </li>
             <li>
-              <a href={`tel:+${CONTATO.telefoneFixo}`} className="link-sublinhado text-white/85 hover:text-white">
-                {CONTATO.telefoneFixoExibicao}
+              <a href={`tel:+${CONTATO.telefoneFixo}`} className="group inline-flex min-h-11 items-center text-white/85 hover:text-white">
+                <span className="link-sublinhado">{CONTATO.telefoneFixoExibicao}</span>
               </a>
             </li>
             <li>
-              <a href={`mailto:${CONTATO.email}`} className="link-sublinhado text-white/85 hover:text-white">
-                {CONTATO.email}
+              <a href={`mailto:${CONTATO.email}`} className="group inline-flex min-h-11 items-center text-white/85 hover:text-white">
+                <span className="link-sublinhado">{CONTATO.email}</span>
               </a>
             </li>
           </ul>

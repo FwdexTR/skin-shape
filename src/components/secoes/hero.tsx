@@ -101,7 +101,7 @@ export function Hero() {
         </div>
 
         {/* Composição de imagens */}
-        <div className="relative lg:col-span-6 lg:col-start-7 xl:col-span-5 xl:col-start-8">
+        <div className="relative mx-auto w-full max-w-[26rem] lg:col-span-6 lg:col-start-7 lg:max-w-none xl:col-span-5 xl:col-start-8">
           {/* Peça de azulejo atrás da foto, como na fachada */}
           <div
             aria-hidden="true"
@@ -115,12 +115,13 @@ export function Hero() {
             <div className="hero-deriva absolute inset-0">
               <VideoAmbiente
                 src={video.src}
+                srcMovel={video.srcMovel}
                 poster={poster.src}
                 rotulo={`Vídeo: ${poster.alt}`}
                 prioridade
               />
             </div>
-            <p className="absolute top-4 right-4 max-w-[11rem] rounded-2xl bg-papel/90 px-3.5 py-2.5 text-[0.72rem] leading-snug text-grafite-2 shadow-1 backdrop-blur sm:top-5 sm:right-5">
+            <p className="absolute top-4 right-4 max-w-[12.5rem] rounded-2xl bg-papel/90 px-3.5 py-2.5 text-[0.8rem] leading-snug text-grafite-2 shadow-1 backdrop-blur sm:top-5 sm:right-5">
               <span className="block font-semibold text-grafite">Shitake Imperial</span>
               prato do Festival de Inverno, de volta ao cardápio
             </p>
