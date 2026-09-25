@@ -1,26 +1,410 @@
 @import "tailwindcss";
 
+/*
+ * Design system da Skin Shape
+ * ---------------------------------------------------------------------------
+ * A paleta nasce de três coisas reais da loja:
+ *   - o azulejo geométrico azul-petróleo da fachada (Rua Ten.-Cel. Cardoso);
+ *   - as duas folhas verdes do logo, sobre o lettering preto em pincel;
+ *   - a madeira clara e o ladrilho hidráulico do salão.
+ * O verde é assinatura, não fundo: aparece em detalhes, nunca em blocos.
+ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Superfícies */
+  --ss-papel: #f7f4ee;
+  --ss-areia: #eee8dc;
+  --ss-linho: #e2d9c8;
+  --ss-branco: #fffdf9;
+
+  /* Texto */
+  --ss-grafite: #181a19;
+  --ss-grafite-2: #3d4340;
+  --ss-cinza: #5b605d; /* 4,9:1 sobre --ss-areia, 5,6:1 sobre --ss-papel */
+
+  /* Marca */
+  --ss-petroleo: #1d4b4e;
+  --ss-petroleo-escuro: #11302f;
+  --ss-petroleo-claro: #d5e2df;
+  --ss-folha: #6cae3e; /* decorativo: não usar como cor de texto sobre claro */
+  --ss-folha-texto: #3b7620; /* 4,9:1 sobre --ss-papel */
+  --ss-folha-clara: #a9d98a; /* texto verde sobre petróleo */
+  --ss-madeira: #b8875a;
+
+  /* Raios */
+  --raio-sm: 0.625rem;
+  --raio-md: 1.125rem;
+  --raio-lg: 1.75rem;
+  --raio-xl: 2.5rem;
+
+  /* Sombras (sempre quentes e difusas, nunca cinza duro) */
+  --sombra-1: 0 1px 2px rgb(24 26 25 / 0.05), 0 10px 30px -18px rgb(24 26 25 / 0.25);
+  --sombra-2: 0 2px 4px rgb(24 26 25 / 0.05), 0 28px 60px -28px rgb(24 26 25 / 0.35);
+
+  /* Espaçamento */
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --secao: clamp(5rem, 11vw, 9.5rem);
+  --largura: 82rem;
+
+  /* Movimento */
+  --ease-saida: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-suave: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-rapida: 180ms;
+  --dur-media: 420ms;
+  --dur-lenta: 900ms;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-papel: var(--ss-papel);
+  --color-areia: var(--ss-areia);
+  --color-linho: var(--ss-linho);
+  --color-branco: var(--ss-branco);
+  --color-grafite: var(--ss-grafite);
+  --color-grafite-2: var(--ss-grafite-2);
+  --color-cinza: var(--ss-cinza);
+  --color-petroleo: var(--ss-petroleo);
+  --color-petroleo-escuro: var(--ss-petroleo-escuro);
+  --color-petroleo-claro: var(--ss-petroleo-claro);
+  --color-folha: var(--ss-folha);
+  --color-folha-texto: var(--ss-folha-texto);
+  --color-folha-clara: var(--ss-folha-clara);
+  --color-madeira: var(--ss-madeira);
+
+  --font-sans: var(--fonte-texto), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--fonte-titulo), var(--fonte-texto), ui-sans-serif, sans-serif;
+  --font-assinatura: var(--fonte-assinatura), cursive;
+
+  --radius-sm: var(--raio-sm);
+  --radius-md: var(--raio-md);
+  --radius-lg: var(--raio-lg);
+  --radius-xl: var(--raio-xl);
+
+  --shadow-1: var(--sombra-1);
+  --shadow-2: var(--sombra-2);
+
+  --ease-saida: var(--ease-saida);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ------------------------------------------------------------------ base -- */
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ss-papel);
+  color: var(--ss-grafite);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--ss-petroleo);
+  color: var(--ss-branco);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ss-petroleo);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.no-escuro :focus-visible,
+.no-escuro:focus-visible {
+  outline-color: var(--ss-folha-clara);
+}
+
+/* ------------------------------------------------------------ tipografia -- */
+
+@layer components {
+  .container-ss {
+    width: 100%;
+    max-width: var(--largura);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .secao {
+    padding-block: var(--secao);
+  }
+
+  /* Etiqueta de seção: pequena, espaçada, com a folha do logo. */
+  .rotulo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ss-grafite-2);
+  }
+  .rotulo::before {
+    content: "";
+    width: 1.75rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.5;
+  }
+
+  .titulo-xl {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.6rem, 7.4vw, 6.25rem);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    font-variation-settings: "opsz" 96;
+  }
+
+  .titulo-lg {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-variation-settings: "opsz" 72;
+  }
+
+  .titulo-md {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  .texto-lead {
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--ss-grafite-2);
+  }
+
+  /* Palavra de destaque dentro de um título: assinatura em pincel, como o logo. */
+  .destaque {
+    font-family: var(--font-assinatura);
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--ss-petroleo);
+    font-size: 1.04em;
+    line-height: 0.8;
+  }
+  .no-escuro .destaque {
+    color: var(--ss-folha-clara);
+  }
+
+  /* Link com sublinhado que cresce da esquerda. */
+  .link-sublinhado {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 2px;
+    transition: background-size var(--dur-media) var(--ease-saida);
+  }
+  .link-sublinhado:hover,
+  .link-sublinhado:focus-visible,
+  .group:hover .link-sublinhado,
+  .group:focus-visible .link-sublinhado {
+    background-size: 100% 1px;
+  }
+}
+
+/* -------------------------------------------------------------- movimento -- */
+
+/*
+ * Tudo que se move aqui é CSS: roda antes do JavaScript, não atrasa o LCP e
+ * o conteúdo nunca depende de script para aparecer. Com "reduzir movimento"
+ * ligado no sistema, nada disso é aplicado.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  /* Entrada da primeira dobra, em cascata (--i = ordem). */
+  .entrar {
+    animation: entrar var(--dur-lenta) var(--ease-saida) both;
+    animation-delay: calc(var(--i, 0) * 90ms + 80ms);
+  }
+
+  .entrar-imagem {
+    animation: entrar-imagem 1.4s var(--ease-saida) both;
+    animation-delay: 150ms;
+  }
+
+  /* Revelação ao rolar, com animation-timeline. Navegador sem suporte
+     simplesmente mostra o conteúdo parado. */
+  @supports (animation-timeline: view()) {
+    .revelar {
+      animation: revelar linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--i, 0) * 6%) entry calc(55% + var(--i, 0) * 6%);
+    }
+
+    .revelar-imagem {
+      animation: revelar-imagem linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+
+    /* Parallax discreto: a foto anda poucos pixels dentro da moldura. */
+    .parallax {
+      animation: parallax linear both;
+      animation-timeline: view();
+      animation-range: cover;
+    }
+  }
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes entrar-imagem {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Só em molduras sem sombra: o clip-path corta a sombra junto. */
+@keyframes revelar-imagem {
+  from {
+    clip-path: inset(9% 5% 9% 5%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes parallax {
+  from {
+    transform: translate3d(0, -4%, 0) scale(1.1);
+  }
+  to {
+    transform: translate3d(0, 4%, 0) scale(1.1);
+  }
+}
+
+/* Faixa corrida (inspirada no Marquee do Magic UI, só com CSS). */
+@keyframes faixa {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.faixa-trilho {
+  animation: faixa var(--duracao, 40s) linear infinite;
+}
+.faixa:hover .faixa-trilho {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faixa-trilho {
+    animation: none;
+  }
+}
+
+/* Zoom leve de imagem dentro de moldura. */
+.zoom-suave img {
+  transition: transform 1.1s var(--ease-saida);
+}
+@media (hover: hover) {
+  .zoom-suave:hover img,
+  .grupo-zoom:hover .zoom-suave img {
+    transform: scale(1.035);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zoom-suave img {
+    transition: none;
+  }
+}
+
+/* Menu mobile (Sheet) */
+@keyframes sheet-in {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+@keyframes sheet-out {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+@keyframes sheet-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes sheet-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-state] {
+    animation-duration: 1ms !important;
+  }
+}
+
+/* Hero: a foto principal desce alguns pixels enquanto a página rola. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .hero-deriva {
+      animation: hero-deriva linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+  }
+}
+@keyframes hero-deriva {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.06);
+  }
+  to {
+    transform: translate3d(0, 7%, 0) scale(1.06);
+  }
+}
+
+/* Accordion (Radix expõe a altura do conteúdo nesta variável) */
+@keyframes acordeao-abre {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
 }
