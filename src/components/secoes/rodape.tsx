@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import {
   IconeFacebook,
   IconeIfood,
@@ -137,17 +138,30 @@ export function Rodape() {
         <p>
           {MARCA.razaoSocial} · CNPJ {MARCA.cnpj}
         </p>
-        <p>
-          Feito por{" "}
-          <a
-            href={CREDITO.url}
-            target="_blank"
-            rel="noopener"
-            className="toque link-sublinhado font-semibold text-white/85 hover:text-white"
-          >
+      </div>
+
+      {/* Assinatura de quem fez o site */}
+      <div className="container-ss flex justify-center pb-[max(2.5rem,env(safe-area-inset-bottom))]">
+        <a
+          href={CREDITO.url}
+          target="_blank"
+          rel="noopener"
+          aria-label={`Site desenvolvido por ${CREDITO.nome}. Abre o site da Aplass`}
+          className="group inline-flex min-h-11 items-center gap-3 rounded-full border border-white/12 bg-white/[0.03] py-2 pr-3 pl-5 text-white/60 transition-[border-color,background-color,color] duration-500 ease-saida hover:border-folha-clara/50 hover:bg-white/[0.06] hover:text-white/85"
+        >
+          <span className="text-xs font-semibold tracking-[0.18em] uppercase">
+            Desenvolvido por
+          </span>
+          <span className="font-assinatura text-xl leading-none text-folha-clara transition-colors duration-500 group-hover:text-white">
             {CREDITO.nome}
-          </a>
-        </p>
+          </span>
+          <span
+            aria-hidden="true"
+            className="grid size-7 place-items-center rounded-full bg-white/10 transition-[background-color,transform] duration-500 ease-saida group-hover:bg-folha-clara group-hover:text-grafite"
+          >
+            <ArrowUpRight className="size-3.5 transition-transform duration-500 ease-saida group-hover:translate-x-px group-hover:-translate-y-px" />
+          </span>
+        </a>
       </div>
     </footer>
   );
