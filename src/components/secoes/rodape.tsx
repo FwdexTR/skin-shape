@@ -15,6 +15,12 @@ import {
   linkWhatsApp,
 } from "@/lib/site";
 
+/** Crédito de quem fez o site; o nome leva ao site da Aplass. */
+const CREDITO = {
+  nome: "Tarcísio",
+  url: "https://aplassolution.vercel.app",
+} as const;
+
 const LINKS = [
   { href: "#inicio", rotulo: "Início" },
   { href: "#sobre", rotulo: "Sobre" },
@@ -124,12 +130,23 @@ export function Rodape() {
         </div>
       </div>
 
-      <div className="container-ss flex flex-col gap-2 border-t border-white/10 py-7 text-xs text-white/60 sm:flex-row sm:justify-between">
+      <div className="container-ss flex flex-col gap-2 border-t border-white/10 py-7 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {ano} {MARCA.nomeCompleto}
         </p>
         <p>
           {MARCA.razaoSocial} · CNPJ {MARCA.cnpj}
+        </p>
+        <p>
+          Feito por{" "}
+          <a
+            href={CREDITO.url}
+            target="_blank"
+            rel="noopener"
+            className="toque link-sublinhado font-semibold text-white/85 hover:text-white"
+          >
+            {CREDITO.nome}
+          </a>
         </p>
       </div>
     </footer>
