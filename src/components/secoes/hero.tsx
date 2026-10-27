@@ -1,4 +1,4 @@
-import { ArrowDown, Star } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import type { CSSProperties } from "react";
 import { preload } from "react-dom";
@@ -7,7 +7,7 @@ import { IconeWhatsApp } from "@/components/marca/icones-redes";
 import { VideoAmbiente } from "@/components/marca/video-ambiente";
 import { Botao } from "@/components/ui/button";
 import { IMAGENS, VIDEOS } from "@/data/imagens";
-import { GOOGLE, linkWhatsApp } from "@/lib/site";
+import { linkWhatsApp } from "@/lib/site";
 
 const ordem = (i: number) => ({ "--i": i }) as CSSProperties;
 
@@ -73,22 +73,6 @@ export function Hero() {
             className="entrar mt-12 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-grafite/10 pt-6 text-sm"
             style={ordem(4)}
           >
-            <div className="flex items-center gap-2.5">
-              <dt className="sr-only">Nota no Google</dt>
-              <dd className="flex items-center gap-2">
-                <span className="flex" aria-hidden="true">
-                  {Array.from({ length: 5 }, (_, i) => (
-                    <Star key={i} className="size-3.5 fill-madeira text-madeira" />
-                  ))}
-                </span>
-                <span>
-                  <strong className="font-semibold">{GOOGLE.nota}</strong>{" "}
-                  <span className="text-grafite-2">
-                    no Google · {GOOGLE.avaliacoes} avaliações
-                  </span>
-                </span>
-              </dd>
-            </div>
             <div className="flex items-center gap-2.5">
               <dt className="sr-only">Horário</dt>
               <dd className="text-grafite-2">

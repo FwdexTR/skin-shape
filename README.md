@@ -35,7 +35,9 @@ npm run build && npm start
   telefone fixo (22) 2725-1554 e e-mail skinshape@hotmail.com.
 - **Cadastro do CNPJ:** Skin & Shape LTDA, 16.366.889/0001-65, aberto em 09/07/2012.
 
-As avaliações exibidas são cópias literais das públicas no Google. Nada foi
+A seção de avaliações e a nota do Google saíram do site em 27/10/2026, a
+pedido do dono (12 avaliações pareceram poucas). As citações continuam em
+`AVALIACOES` (`src/data/conteudo.ts`) para voltar quando houver mais. Nada foi
 inventado; o que não tinha fonte ficou de fora.
 
 ## Fotos, vídeos e logo
@@ -65,7 +67,7 @@ Todo o material visual é da própria Skin Shape, com uso autorizado
    da Vercel (`VERCEL_PROJECT_PRODUCTION_URL`).
 3. **Confirmar "desde 2012".** Vem da data de abertura do CNPJ.
 4. **Search Console e Bing Webmaster:** códigos de verificação em `layout.tsx`.
-5. **Atualizar de tempos em tempos:** nota/quantidade de avaliações e número
+5. **Atualizar de tempos em tempos:** número
    de seguidores (`src/lib/site.ts`), e os posts da seção Instagram.
 
 ## Movimento e acessibilidade

@@ -1,4 +1,3 @@
-import { Avaliacoes } from "@/components/secoes/avaliacoes";
 import { CtaFinal } from "@/components/secoes/cta-final";
 import { Diferenciais } from "@/components/secoes/diferenciais";
 import { Experiencia } from "@/components/secoes/experiencia";
@@ -24,7 +23,6 @@ export default function Inicio() {
         <Produtos />
         <Diferenciais />
         <Experiencia />
-        <Avaliacoes />
         <Instagram />
         <Localizacao />
         <Perguntas />

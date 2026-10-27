@@ -1,13 +1,13 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
 import { IMAGENS } from "@/data/imagens";
-import { GOOGLE, MARCA, REDES } from "@/lib/site";
+import { MARCA, REDES } from "@/lib/site";
 
 const ordem = (i: number) => ({ "--i": i }) as CSSProperties;
 
 const NUMEROS = [
   { valor: `${MARCA.desde}`, rotulo: "o ano em que a Skin Shape abriu as portas em Campos" },
-  { valor: `${GOOGLE.nota}★`, rotulo: `nota no Google, em ${GOOGLE.avaliacoes} avaliações` },
+  { valor: "3", rotulo: "jeitos de comprar: na loja, retirada ou entrega" },
   { valor: REDES.instagramSeguidores, rotulo: "pessoas acompanham a loja no Instagram" },
   { valor: "6 dias", rotulo: "por semana, de segunda a sábado" },
 ];
