@@ -1,3 +1,7 @@
+> **Aposentado em 28/10/2026.** Todo acesso a skin-shape.vercel.app redireciona
+> (308) para https://skinshape.com.br, o site com a nova identidade
+> (`../skin-shape2`). Para reativar, apague `redirects()` em `next.config.ts`.
+
 # Skin Shape — Empório Funcional
 
 Site institucional da Skin Shape (Campos dos Goytacazes, RJ).

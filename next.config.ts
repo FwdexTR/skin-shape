@@ -13,6 +13,16 @@ const nextConfig: NextConfig = {
     qualities: [75],
     deviceSizes: [390, 640, 828, 1080, 1280, 1600, 1920],
   },
+  /**
+   * Site aposentado em 28/10/2026: a Skin Shape passou a usar o site com a nova
+   * identidade em https://skinshape.com.br (projeto ../skin-shape2). Todo
+   * endereço daqui redireciona para lá com 308 (permanente), para quem tiver o
+   * link antigo e para o Google transferir a posição. O código fica como
+   * arquivo; para reativar, apague este bloco.
+   */
+  async redirects() {
+    return [{ source: "/:path*", destination: "https://skinshape.com.br/:path*", permanent: true }];
+  },
   async headers() {
     return [
       {
